@@ -17,9 +17,6 @@ function replaceLatter(latter, stringArray, indexString){
         let offset = (26+13+lowerIndexString)%26;
         if (latter == alfabetItem){
             stringArray[indexString] = alfabetArrayLower[offset];
-            // arrOperation.push(stringArray[indexString]+"->"+alfabetArrayLower[offset]);
-            // arrOperation.push("a");
-            // console.log(arrOperation);
             return true;
         }
     });
@@ -27,7 +24,6 @@ function replaceLatter(latter, stringArray, indexString){
         let offset = (26+13+UpperIndexString)%26;
         if (latter == alfabetItem){
             stringArray[indexString] = alfabetArrayUpper[offset];
-            // arrOperation.push(stringArray[indexString]+"->"+alfabetArrayUpper[offset]);
             return true;
         }
     });
@@ -41,7 +37,6 @@ function encryption(stringArray) {
         }
         else{
             stringArray[indexString] = stringArray[indexString];
-            // arrOperation.push(stringArray[indexString]+"->"+stringArray[indexString]);
         }        
     });
     return stringArray;
