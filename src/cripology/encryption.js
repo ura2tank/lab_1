@@ -62,6 +62,9 @@ window.encryptText = encryptText;
     let container = document.createElement('div');
     container.className = 'encrypt-container';
 
+    let inputOutputWrapper = document.createElement('div');
+    inputOutputWrapper.className = 'input-output-wrapper';
+
     let textarea = document.createElement('textarea');
     textarea.id = 'encrypt-autoinput';
     textarea.rows = 5;
@@ -75,12 +78,15 @@ window.encryptText = encryptText;
 
     textarea.onkeyup = function() {
         output.children[0].textContent = window.encryptText(textarea.value);
-        // console.log(arrOperation);
+        // Автоматическое растягивание textarea по высоте
+        textarea.style.height = 'auto'; // Сброс высоты для корректного измерения
+        textarea.style.height = (textarea.scrollHeight) + 'px'; // Установка высоты по содержимому
     };
 
-    container.appendChild(textarea);
-    // container.appendChild(button);
-    container.appendChild(output);
+    inputOutputWrapper.appendChild(textarea);
+    inputOutputWrapper.appendChild(output);
+
+    container.appendChild(inputOutputWrapper);
 
     document.getElementById('display').appendChild(container);
 })();

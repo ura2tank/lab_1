@@ -59,6 +59,9 @@ window.decryptText = decryptText;
     let container = document.createElement('div');
     container.className = 'decrypt-container';
 
+    let inputOutputWrapper = document.createElement('div');
+    inputOutputWrapper.className = 'input-output-wrapper';
+
     let textarea = document.createElement('textarea');
     textarea.id = 'decrypt-autoinput';
     textarea.rows = 5;
@@ -72,10 +75,14 @@ window.decryptText = decryptText;
 
     textarea.onkeyup = function() {
         output.children[0].textContent = window.decryptText(textarea.value);
+        textarea.style.height = 'auto';
+        textarea.style.height = (textarea.scrollHeight) + 'px';
     };
 
-    container.appendChild(textarea);
-    // container.appendChild(button);
-    container.appendChild(output);
+    inputOutputWrapper.appendChild(textarea);
+    inputOutputWrapper.appendChild(output);
+
+    container.appendChild(inputOutputWrapper);
+
     document.getElementById('display').appendChild(container);
 })();
